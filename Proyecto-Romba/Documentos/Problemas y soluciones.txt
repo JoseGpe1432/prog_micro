@@ -1,0 +1,6 @@
+Problemas y soluciones:
+Problema: Al ejecutar el programa, marcaba "Distancia no válida".
+Solución: Usar la cámara como detector de distancias.
+
+Problema: En la primera prueba ambas ruedas giraban en dirección contraria.
+Solución: La conexión del motor estaba mal, se reconectó la conexión del motor.

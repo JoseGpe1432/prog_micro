@@ -1,0 +1,24 @@
+ROOOMBA: PRUEBA MOTORIZADA SUPERVISADA SIN HC-SR04
+
+ATENCION: NO es navegación autónoma ni detección de obstáculos fiable.
+La cámara monocular no garantiza espacio libre. Sin detección anticaída.
+Usar exclusivamente en suelo plano, recinto cerrado, con vigilancia continua,
+y un interruptor físico para cortar la alimentación de motores.
+
+1. Respaldar el firmware actual ESP32 y cargar roomba_esp32_sin_ultrasonido_supervisado.ino.
+   Este firmware deja de bloquear avance por ausencia de HC-SR04, pero conserva
+   el watchdog de comandos y parada ante fallos de IMU.
+2. Respaldar la carpeta Raspberry y copiar los archivos .py de este paquete.
+3. Activar el entorno virtual original: source .venv/bin/activate
+4. Ejecutar: python run_robot.py --supervised-motors
+5. Abrir http://IP_RASPBERRY:5000. Desactivar escenario DEMO.
+6. Mantener pulsado un botón de dirección para un movimiento breve. Soltar para parar.
+   Sin renovación del permiso cada 220 ms el programa ordena parar.
+   El watchdog ESP32 también debe parar si pierde la comunicación.
+7. Botón DETENER enclava la parada hasta reiniciar el programa.
+8. Botón Planificar: BFS/DFS/UCS/GREEDY/ASTAR solo calculan rutas, no las ejecutan.
+9. Detecciones: son candidatas visuales. Bloquean avance ante posibles obstáculos;
+   no autorizan avanzar ni rodear objetos por sí solas.
+
+IMPORTANTE: la alimentación de batería no se mide en esta versión.
+No dejar el robot funcionando sin operador.

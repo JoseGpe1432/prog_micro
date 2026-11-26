@@ -1,0 +1,8 @@
+# V6.7 — integración experimental
+Base: V6.6.5. Extraer raspberry conservando .venv y revisar config.py. No cambiar firmware ESP32. Ejecutar `python run_robot.py --no-motors` tras activar .venv. Abrir http://127.0.0.1:5000. Calibrar suelo y reposo. El nuevo panel de simulación ejecuta BFS, DFS, UCS, GREEDY y ASTAR en un escenario sintético independiente; dibuja ruta y trayectoria cinemática con giros y margen de huella. No manda órdenes al ESP32.
+
+Se unifican vetos visuales para avance autónomo supervisado; /api/status.visual_safety muestra motivos. No se elimina ningún veto por contraste. Las juntas finas se etiquetan como posibles juntas/cables, no se descartan como obstáculos. Se evita repetir la misma captura en odometría y se optimiza el cálculo de oclusión del mapa. La calibración y los parámetros 14 cm, 14.28°, CAM_X=0.17 se conservan. El FOV sigue supuesto. No se garantiza corregir la pérdida de inliers en suelo real.
+
+La cámara deja una zona ciega y no observa el espacio lateral durante giros. Por ello no se habilita seguimiento físico de rutas ni evasión automática física: se prueban en simulación. El avance supervisado conserva el permiso de 220 ms y los vetos de cobertura; puede seguir bloqueado. No bajar umbrales para forzar marcha. Para cubrir zonas ciegas, instalar sensores de proximidad frontales y laterales, protección de desniveles y parada física; encoders mejoran posición. Verificar alimentación antes de conectar motores. No probar cerca de personas, mascotas ni escaleras.
+
+Pruebas: `python -m unittest test_v67 test_v665 test_proximity test_supervised_auto test_visual_mapping test_phase_rest`. No implica validación física ni suite completa.

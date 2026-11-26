@@ -1,0 +1,14 @@
+PRUEBA MOTORIZADA SUPERVISADA — NO ES NAVEGACION AUTONOMA COMPLETA
+
+ADVERTENCIAS: NO HAY DETECCION DE PRECIPICIOS NI MEDICION REAL DE BATERIA. No usar cerca de escaleras, desniveles, personas o animales. Realizar en piso plano, recinto delimitado con barreras, bajo vigilancia y con interruptor fisico de corte de energia de motores al alcance. Fuente estable para Raspberry Pi 5 (en las capturas habia advertencia de bajo voltaje).
+
+El detector visual actual clasifica por contraste/tamano: no distingue de forma fiable todos los muebles, paredes o basura. La camara puede solicitar parada ante objetos grandes/cables candidatos; el HC-SR04 debe medir >= 60 cm para avanzar. NO esquiva objetos de forma autonoma porque no hay sensor lateral/trasero fiable. El robot NO retrocede ni gira automaticamente para evitar colisiones laterales. La velocidad se limita a 0.035 m/s y cada activacion dura maximo 20 s. El boton Detener enclava la parada hasta reiniciar la aplicacion.
+
+Instalacion: respaldar proyecto anterior, descomprimir este ZIP en carpeta nueva, activar venv e instalar requirements.txt.
+Prueba sin motores: python run_robot.py --no-motors
+Prueba supervisada: python run_robot.py --supervised-motors
+Abrir http://127.0.0.1:5000, desactivar DEMO y pulsar Iniciar / avanzar 20 s.
+
+BFS/DFS/UCS/GREEDY/ASTAR siguen disponibles en el panel para planificacion PREVIEW. El movimiento supervisado NO sigue sus rutas todavia: no existe localizacion fiable en metros, sensores laterales/precipicio ni mapa de navegacion verificado. El cambio de algoritmo no cambia el control reactivo del motor. Se muestra honestamente para no atribuir capacidades inexistentes.
+
+Antes de avanzar hacia busqueda y esquiva autonoma reales: validar fuente de Pi, anticaida, medida real de bateria, ultrasonido, deteccion de distancia lateral, odometria metrica y pruebas de frenado.

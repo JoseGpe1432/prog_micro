@@ -1,0 +1,2 @@
+# V6.3 sobre V6.2
+Copiar region_tracker.py, dashboard.py y test_region_tracker.py sobre la instalación existente. No modifica motores ni mapa. Kalman de centro con velocidad residual y desplazamiento global; asociación aproximada, no identidad garantizada. Hasta cinco ausencias y 1.5 s desde última observación; no cuenta predicciones como hits. update_hz es frecuencia de actualizaciones del tracker, no FPS de cámara; tracker_ms mide sólo el tracker. Mantener --no-motors. No incluye segmentación del suelo. Corregir alimentación de Pi antes de pruebas.

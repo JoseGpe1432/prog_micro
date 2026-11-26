@@ -1,0 +1,15 @@
+PRUEBA DE ODOMETRIA VISUAL (NO SLAM COMPLETO)
+
+1. Haz copia de seguridad de run_robot.py y dashboard.py.
+2. Copia run_robot.py, dashboard.py y visual_odometry.py a ~/robot_aspirador_organizado/raspberry/.
+3. Conserva tus config.py, vision.py, brain.py y demás módulos originales.
+4. source .venv/bin/activate && python run_robot.py --host 0.0.0.0
+5. Abre http://IP_RASPBERRY:5000. Mueve el robot A MANO, con motores desconectados.
+
+Requiere opencv-python, numpy, Flask y pyserial ya instalados.
+La escala depende de CAM_HEIGHT, CAM_PITCH_DEG y CAM_HFOV_DEG.
+Si la cámara solo ve suelo uniforme, puede no encontrar puntos.
+La estimación se deriva de características del suelo y asume plano horizontal.
+No hay detección de obstáculos fiable ni SLAM completo, cierre de bucle o relocalización.
+No utilizar para conducción autónoma.
+El panel mantiene el mapa antiguo solo como referencia.

@@ -1,0 +1,2 @@
+# V6.6.4
+Altura 0.14 m, inclinación 30 grados desde horizontal (suposición), CAM_X y FOV conservados sin verificar. Diagnóstico simultáneo de contraste y segmentación, marcas de corredor y barreras naranjas. El detector de contraste conserva su veto: desacuerdo no demuestra espacio libre. No se modifica firmware ni odometría. Probar sin motores, calibrar suelo y reposo, medir barrera a varias distancias. No activar motores hasta verificar alimentación, corte físico y geometría. Las estimaciones naranja no autorizan movimiento.
